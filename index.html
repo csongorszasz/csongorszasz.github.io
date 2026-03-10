@@ -3,158 +3,115 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>csongorszasz</title>
+    <title>Csongor Szász</title>
     <style>
-      /* 1. The Canvas */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-      /* Add smooth scrolling */
-      html {
-        scroll-behavior: smooth;
+      html, body {
+        height: 100%;
       }
 
       body {
-        background-color: #0a0a0a; /* Almost pure black (easier on eyes) */
-        color: #e0e0e0; /* Soft white text */
-        margin: 0;
-        padding: 0;
-
-        /* 2. Typography - The "Book" Feel */
         font-family: "Georgia", "Times New Roman", serif;
-        font-size: 18px;
-        line-height: 1.8; /* Generous spacing for reading */
+        background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.9)), url("files/aurora.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
       }
 
-      /* Custom scrollbar styling */
-      ::-webkit-scrollbar {
-        width: 16px; /* Wider scrollbar */
+      .card {
+        border-radius: 4px;
+        padding: 52px 60px;
+        max-width: 420px;
+        width: calc(100% - 40px);
+        margin-left: 8vw;
       }
 
-      ::-webkit-scrollbar-track {
-        background: #0a0a0a; /* Match body background */
-      }
-
-      ::-webkit-scrollbar-thumb {
-        background: #2a2a2a; /* Dark gray thumb */
-        border-radius: 8px; /* Smooth rounded edges */
-        border: 3px solid #0a0a0a; /* Padding effect */
-      }
-
-      ::-webkit-scrollbar-thumb:hover {
-        background: #3a3a3a; /* Slightly lighter on hover */
-      }
-
-      /* Firefox scrollbar */
-      * {
-        scrollbar-width: auto; /* auto or thin */
-        scrollbar-color: #2a2a2a #0a0a0a; /* thumb track */
-      }
-
-      /* 3. The Central Column */
-      .container {
-        max-width: 600px; /* Limits width to readable book standard */
-        margin: 0 auto; /* Centers the column perfectly */
-        padding: 80px 20px; /* Top/Bottom padding & Side padding for mobile */
-      }
-
-      /* 4. Text Styling */
-      h1,
-      h2 {
+      h1 {
+        font-size: 22px;
         font-weight: normal;
+        letter-spacing: 3px;
+        color: #dfe3e9;
+        margin-bottom: 6px;
+        text-transform: uppercase;
+      }
+
+      .location {
+        font-size: 11px;
         letter-spacing: 2px;
+        color: #878c94;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+      }
+
+      .contact-list {
+        list-style: none;
+        margin-bottom: 38px;
+      }
+
+      .contact-list li {
+        font-size: 13px;
+        letter-spacing: 0.5px;
+        color: #878c94;
         margin-bottom: 10px;
-        text-align: center;
+        font-family: "Courier New", "Courier", monospace;
       }
 
-      p {
-        margin-bottom: 30px;
+      .contact-list li:last-child {
+        margin-bottom: 0;
       }
 
-      /* 5. GIF/Image Styling */
-      img {
-        max-width: 100%; /* Ensures GIFs don't overflow on mobile */
-        height: auto;
-        display: block;
-        margin: 50px auto; /* Adds breathing room around visuals */
-        border-radius: 4px; /* Optional: Slight smoothing of edges */
-        background: #1a1a1a; /* Placeholder color while loading */
+      .contact-list a {
+        color: #878c94;
+        text-decoration: none;
+        transition: color 0.2s;
       }
 
-      /* 6. Links */
-      a {
-        color: #fff;
-        text-decoration: underline;
-        text-decoration-thickness: 1px;
-        text-underline-offset: 4px;
+      .contact-list a:hover {
+        color: #c8d4e0;
       }
-      a:hover {
-        color: #888;
+
+      .links {
+        display: flex;
+        gap: 28px;
+      }
+
+      .links a {
+        font-size: 11px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #7d8088;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .links a:hover {
+        color: #9aaabb;
       }
     </style>
   </head>
   <body>
-    <div class="container">
+    <div class="card">
       <h1>Csongor Szász</h1>
-
-      <p
-        style="
-          text-align: center;
-          margin-bottom: 10px;
-          font-size: 14px;
-          color: #888;
-        "
-      >
-        szasz.csongor1@gmail.com
-      </p>
-
-      <p
-        style="
-          text-align: center;
-          margin-bottom: 10px;
-          font-size: 14px;
-          color: #888;
-        "
-      >
-        +47 465 33 135
-      </p>
-
-      <p
-        style="
-          text-align: center;
-          margin-bottom: 10px;
-          font-size: 14px;
-          color: #888;
-        "
-      >
-        Trondheim, Norway
-      </p>
-
-      <p style="text-align: center; margin-bottom: 50px">
-        <a
-          href="https://linkedin.com/in/csongorszasz"
-          target="_blank"
-          rel="noopener noreferrer"
-          >LinkedIn</a
-        >
-        ·
-        <a
-          href="https://github.com/csongorszasz"
-          target="_blank"
-          rel="noopener noreferrer"
-          >GitHub</a
-        >
-        ·
-        <a
-          href="files/CV2026.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          >CV</a
-        >
-      </p>
-
-      <img
-        src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExczlkeGI1dWFpYWJxdTV6bjh1eWkxZHV0NXVrNjZvc290ZTVybGNobiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/IThjAlJnD9WNO/giphy.gif"
-        alt="Little bear saying hi"
-      />
+      <p class="location">Trondheim, Norway</p>
+      <ul class="contact-list">
+        <li><a href="mailto:szasz.csongor1@gmail.com">szasz.csongor1@gmail.com</a></li>
+        <li>+47 465 33 135</li>
+      </ul>
+      <nav class="links">
+        <a href="https://linkedin.com/in/csongorszasz" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/csongorszasz" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="files/CV_CsongorSzasz.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+      </nav>
     </div>
   </body>
 </html>
