@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{headline}} — EITPN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&family=Merriweather+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <a href="../index.html" class="navbar__logo">EITPN</a>
+    </div>
+  </nav>
+
+  <div class="article-wrapper">
+
+    <header class="article-header">
+      <p class="article-category">{{category}}</p>
+      <h1 class="article-headline">{{headline}}</h1>
+      <p class="article-byline">By <strong>{{author}}</strong> &mdash; {{date}}</p>
+    </header>
+
+    <article class="article-content">
+      {{body}}
+    </article>
+
+    {{sources_section}}
+
+    <footer class="article-copyright">
+      {{copyright}}
+    </footer>
+
+  </div>
+
+</body>
+</html>
