@@ -17,7 +17,7 @@
 
       body {
         font-family: "Georgia", "Times New Roman", serif;
-        background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.9)), url("files/aurora.jpg");
+        background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.95)), url("files/aurora4.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -45,12 +45,20 @@
         text-transform: uppercase;
       }
 
-      .location {
-        font-size: 11px;
-        letter-spacing: 2px;
+      .pronunciation {
+        font-size: 14px;
+        letter-spacing: 7px;
+        color: #cfd4db;
+        font-family: "Courier New", "Courier", monospace;
+        font-style: italic;
+        margin-bottom: 20px;
+      }
+
+      .position {
+        font-size: 12px;
+        letter-spacing: 1.5px;
         color: #878c94;
-        text-transform: uppercase;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
       }
 
       .contact-list {
@@ -102,15 +110,17 @@
   <body>
     <div class="card">
       <h1>Csongor Szász</h1>
-      <p class="location">Trondheim, Norway</p>
+      <p class="pronunciation">"Chon-gor Sas"</p>
+      <p class="position">MSc student in AI</p>
       <ul class="contact-list">
-        <li><a href="mailto:szasz.csongor1@gmail.com">szasz.csongor1@gmail.com</a></li>
         <li>+47 465 33 135</li>
+        <li><a href="mailto:szasz.csongor1@gmail.com">szasz.csongor1@gmail.com</a></li>
+        <li>Trondheim, Norway</li>
       </ul>
       <nav class="links">
-        <a href="https://linkedin.com/in/csongorszasz" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://github.com/csongorszasz" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="files/CV_CsongorSzasz.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        <a href="files/CV_CsongorSzasz.pdf" target="_blank" rel="noopener noreferrer"><u>CV</u></a>
+        <a href="https://linkedin.com/in/csongorszasz" target="_blank" rel="noopener noreferrer"><u>LinkedIn</u></a>
+        <a href="https://github.com/csongorszasz" target="_blank" rel="noopener noreferrer"><u>GitHub</u></a>
       </nav>
     </div>
   </body>
