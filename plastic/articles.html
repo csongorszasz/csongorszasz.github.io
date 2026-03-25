@@ -3,46 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EIT — News &amp; Articles</title>
+  <title>EIT — Articles by Category</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&family=Merriweather+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-    <script>
-        (function () {
-            var savedTheme = localStorage.getItem('theme');
-            var theme = savedTheme === 'dark' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
+  <script>
+    (function () {
+      var savedTheme = localStorage.getItem('theme');
+      var theme = savedTheme === 'dark' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
 
   <nav class="navbar">
     <div class="container navbar__inner">
       <a href="index.html" class="navbar__logo">EITPN</a>
-            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode" title="Toggle theme">
-                <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
-                <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
-            </button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode" title="Toggle theme">
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+      </button>
     </div>
   </nav>
 
-    <main class="home-overview">
-        <div class="home-overview__content">
-            <h1 class="home-overview__title">
-                <span class="home-overview__title-mark">EiT</span>
-                <span class="home-overview__title-side">
-                    <span>Plastic</span>
-                    <span>News</span>
-                </span>
-            </h1>
-            <a href="#articles" class="home-overview__link">Find out the truth</a>
-        </div>
-    </main>
+  <main class="container">
+    <header class="page-header">
+      <h1 class="page-title">Blog</h1>
+    </header>
 
-        <section id="articles" class="home-articles container">
-                <!-- category-groups -->
+    <!-- category-groups -->
     <section class="category-section">
       <h2 class="category-section__title">Health</h2>
       <div class="tile-grid">
@@ -173,32 +164,32 @@
       </div>
     </section>
     <!-- /category-groups -->
-        </section>
+  </main>
 
-    <script>
-        (function () {
-            var root = document.documentElement;
-            var toggleButton = document.getElementById('themeToggle');
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var toggleButton = document.getElementById('themeToggle');
 
-            if (!toggleButton) return;
+      if (!toggleButton) return;
 
-            function currentTheme() {
-                return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-            }
+      function currentTheme() {
+        return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      }
 
-            function applyTheme(theme) {
-                root.setAttribute('data-theme', theme);
-                localStorage.setItem('theme', theme);
-                toggleButton.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
-            }
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        toggleButton.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      }
 
-            applyTheme(currentTheme());
+      applyTheme(currentTheme());
 
-            toggleButton.addEventListener('click', function () {
-                applyTheme(currentTheme() === 'light' ? 'dark' : 'light');
-            });
-        })();
-    </script>
+      toggleButton.addEventListener('click', function () {
+        applyTheme(currentTheme() === 'light' ? 'dark' : 'light');
+      });
+    })();
+  </script>
 
 </body>
 </html>

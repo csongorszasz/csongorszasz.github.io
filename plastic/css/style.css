@@ -130,6 +130,70 @@ a { color: inherit; text-decoration: none; }
   display: none;
 }
 
+/* 5. Homepage Overview
+   ============================================================ */
+.home-overview {
+  min-height: calc(100vh - 52px);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.25rem;
+}
+
+.home-overview__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home-overview__title {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.9rem;
+  margin: 0;
+  font-family: var(--font-headline);
+  font-size: clamp(2.8rem, 11vw, 7rem);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.home-overview__title-mark {
+  font-size: 1em;
+  line-height: 0.9;
+}
+
+.home-overview__title-side {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.38em;
+  line-height: 1.06;
+  letter-spacing: 0.02em;
+  padding-bottom: 0.12em;
+}
+
+.home-overview__link {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--font-ui);
+  font-size: 0.84rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 1px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.home-overview__link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.home-articles {
+  padding-bottom: 4rem;
+}
+
 /* 5. Main Page Header
    ============================================================ */
 .page-header {
@@ -253,6 +317,19 @@ a { color: inherit; text-decoration: none; }
   font-weight: 600;
   letter-spacing: 0.04em;
   color: var(--accent);
+}
+
+.category-section {
+  margin-bottom: 2.5rem;
+}
+
+.category-section__title {
+  font-family: var(--font-headline);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  margin: 1.6rem 0 0.7rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--border);
 }
 
 /* 9. Article Wrapper

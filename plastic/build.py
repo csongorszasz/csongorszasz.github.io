@@ -6,9 +6,10 @@ Usage:
     python build.py                            # build every file in articles/src/
     python build.py articles/src/my-post.html  # build a single file
 
-Reads:   articles/_template.html      (the shared skeleton)
-Reads:   articles/src/*.html          (minimal content files)
-Writes:  articles/<same-filename>.html (final static HTML)
+Reads:   articles/_template.html       (the shared skeleton)
+Reads:   articles/src/*.html           (minimal content files)
+Writes:  articles/<same-filename>.html (final article pages)
+Writes:  index.html                    (category-grouped article cards)
 
 Content file format
 -------------------
@@ -45,10 +46,10 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-TEMPLATE_PATH = Path("articles/_template.html")
-SRC_DIR       = Path("articles/src")
-OUT_DIR       = Path("articles")
-INDEX_PATH    = Path("index.html")
+TEMPLATE_PATH      = Path("articles/_template.html")
+SRC_DIR            = Path("articles/src")
+OUT_DIR            = Path("articles")
+INDEX_PATH         = Path("index.html")
 
 
 def wrap_paragraphs(body: str) -> str:
@@ -171,9 +172,9 @@ def make_excerpt(body: str, max_chars: int = 220) -> str:
     return ""
 
 
-def build_index():
-    """Regenerate the article cards inside index.html from all source files."""
-    index_text = INDEX_PATH.read_text(encoding="utf-8")
+def build_index_cards():
+    """Regenerate grouped article cards inside index.html from all source files."""
+    page_text = INDEX_PATH.read_text(encoding="utf-8")
 
     def parse_date(d: str) -> datetime:
         for fmt in ("%B %d, %Y", "%B %Y"):
@@ -190,7 +191,7 @@ def build_index():
 
     articles.sort(key=lambda x: parse_date(x[1]["date"]), reverse=True)
 
-    cards = []
+    groups = {}
     for filename, data in articles:
         excerpt = make_excerpt(data["body"])
         card = (
@@ -204,13 +205,26 @@ def build_index():
             f'            </div>\n'
             f'        </a>'
         )
-        cards.append(card)
+        category = data["category"] or "Uncategorized"
+        groups.setdefault(category, []).append(card)
 
-    cards_block = "\n\n".join(cards)
+    sections = []
+    for category, cards in groups.items():
+        section = (
+            '    <section class="category-section">\n'
+            f'      <h2 class="category-section__title">{category}</h2>\n'
+            '      <div class="tile-grid">\n'
+            f'{"\n\n".join(cards)}\n'
+            '      </div>\n'
+            '    </section>'
+        )
+        sections.append(section)
+
+    sections_block = "\n\n".join(sections)
     new_text = re.sub(
-        r"(<!--\s*article-cards\s*-->).*?(<!--\s*/article-cards\s*-->)",
-        f"<!-- article-cards -->\n{cards_block}\n        <!-- /article-cards -->",
-        index_text,
+        r"(<!--\s*category-groups\s*-->).*?(<!--\s*/category-groups\s*-->)",
+        f"<!-- category-groups -->\n{sections_block}\n    <!-- /category-groups -->",
+        page_text,
         flags=re.DOTALL,
     )
     INDEX_PATH.write_text(new_text, encoding="utf-8")
@@ -230,7 +244,7 @@ def main():
     print(f"Building {len(targets)} article(s)…")
     for t in targets:
         build(t)
-    build_index()
+    build_index_cards()
     print("Done.")
 
 
