@@ -30,14 +30,14 @@
 
       .card {
         border-radius: 4px;
-        padding: 52px 60px;
-        max-width: 420px;
+        padding: 30px 35px;
+        max-width: 500px;
         width: calc(100% - 40px);
         margin-left: 8vw;
       }
 
       h1 {
-        font-size: 22px;
+        font-size: 33px;
         font-weight: normal;
         letter-spacing: 3px;
         color: #dfe3e9;
@@ -46,18 +46,21 @@
       }
 
       .pronunciation {
-        font-size: 14px;
-        letter-spacing: 7px;
-        color: #cfd4db;
-        font-family: "Courier New", "Courier", monospace;
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        color: #dbe2ea;
+        font-family: "Georgia", "Times New Roman", serif;
         font-style: italic;
-        margin-bottom: 20px;
+        line-height: 1.45;
+        opacity: 0.9;
+        margin-bottom: 30px;
       }
 
       .position {
-        font-size: 12px;
-        letter-spacing: 1.5px;
-        color: #878c94;
+        font-size: 16px;
+        letter-spacing: 1.8px;
+        color: #aeb9c6;
+        font-weight: 500;
         margin-bottom: 30px;
       }
 
@@ -90,27 +93,33 @@
 
       .links {
         display: flex;
-        gap: 28px;
+        gap: 20px;
       }
 
       .links a {
-        font-size: 11px;
-        letter-spacing: 2px;
+        font-size: 12px;
+        letter-spacing: 1.8px;
+        font-weight: 500;
         text-transform: uppercase;
-        color: #7d8088;
+        color: #9ca8b6;
         text-decoration: none;
-        transition: color 0.2s;
+        padding: 2px 0;
+        border-bottom: 1px solid rgba(156, 168, 182, 0.45);
+        transition: color 0.2s, border-color 0.2s, opacity 0.2s;
+        opacity: 0.9;
       }
 
       .links a:hover {
-        color: #9aaabb;
+        color: #d4dee9;
+        border-color: rgba(212, 222, 233, 0.8);
+        opacity: 1;
       }
     </style>
   </head>
   <body>
     <div class="card">
       <h1>Csongor Szász</h1>
-      <p class="pronunciation">"Chon-gor Sas"</p>
+      <p class="pronunciation">Pronounce: "Chon-gor Sas"</p>
       <p class="position">MSc student in AI</p>
       <ul class="contact-list">
         <li>+47 465 33 135</li>
@@ -118,9 +127,9 @@
         <li>Trondheim, Norway</li>
       </ul>
       <nav class="links">
-        <a href="files/CV_CsongorSzasz.pdf" target="_blank" rel="noopener noreferrer"><u>CV</u></a>
-        <a href="https://linkedin.com/in/csongorszasz" target="_blank" rel="noopener noreferrer"><u>LinkedIn</u></a>
-        <a href="https://github.com/csongorszasz" target="_blank" rel="noopener noreferrer"><u>GitHub</u></a>
+        <a href="files/CV_CsongorSzasz.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        <a href="https://github.com/csongorszasz" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://linkedin.com/in/csongorszasz" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </nav>
     </div>
   </body>
