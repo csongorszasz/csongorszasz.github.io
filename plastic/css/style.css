@@ -191,7 +191,16 @@ a { color: inherit; text-decoration: none; }
 }
 
 .home-articles {
+  scroll-margin-top: 64px;
   padding-bottom: 4rem;
+}
+
+.home-articles__heading {
+  font-family: var(--font-headline);
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0 0 1rem;
 }
 
 /* 5. Main Page Header
