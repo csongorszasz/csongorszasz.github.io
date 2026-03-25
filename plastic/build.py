@@ -208,8 +208,20 @@ def build_index_cards():
         category = data["category"] or "Uncategorized"
         groups.setdefault(category, []).append(card)
 
+    preferred_order = [
+        "Health",
+        "Environment",
+        "Circular Economy & Solutions",
+        "Policy & Behavior",
+        "Uncategorized",
+    ]
+
+    ordered_categories = [c for c in preferred_order if c in groups]
+    remaining_categories = sorted(c for c in groups if c not in preferred_order)
+
     sections = []
-    for category, cards in groups.items():
+    for category in ordered_categories + remaining_categories:
+        cards = groups[category]
         section = (
             '    <section class="category-section">\n'
             f'      <h2 class="category-section__title">{category}</h2>\n'
