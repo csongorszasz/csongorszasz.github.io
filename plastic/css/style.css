@@ -93,6 +93,46 @@ a { color: inherit; text-decoration: none; }
   color: var(--accent);
 }
 
+.navbar__group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.navbar__back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: color-mix(in oklab, var(--bg) 94%, var(--text) 6%);
+  transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.navbar__back-link::before {
+  content: '←';
+  font-size: 0.95em;
+  line-height: 1;
+  opacity: 0.75;
+}
+
+.navbar__back-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: var(--surface-hover);
+}
+
+.navbar__back-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .theme-toggle {
   width: 2.1rem;
   height: 2.1rem;
