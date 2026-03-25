@@ -174,20 +174,40 @@ a { color: inherit; text-decoration: none; }
 }
 
 .home-overview__link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   margin-top: 1rem;
+  padding: 0.42rem 0.72rem;
   font-family: var(--font-ui);
   font-size: 0.84rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   color: var(--text-muted);
-  border-bottom: 1px solid transparent;
-  transition: color 0.18s ease, border-color 0.18s ease;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: color-mix(in oklab, var(--bg) 92%, var(--text) 8%);
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, transform 0.18s ease, background-color 0.18s ease;
+}
+
+.home-overview__link::after {
+  content: '↓';
+  font-size: 0.85em;
+  line-height: 1;
+  opacity: 0.75;
 }
 
 .home-overview__link:hover {
   color: var(--accent);
-  border-bottom-color: var(--accent);
+  border-color: var(--accent);
+  background-color: var(--surface-hover);
+  transform: translateY(-1px);
+}
+
+.home-overview__link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .home-articles {
