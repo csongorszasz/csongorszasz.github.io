@@ -11,9 +11,8 @@
   <script>
     (function () {
       var savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light' || savedTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      }
+      var theme = savedTheme === 'dark' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
 </head>
@@ -83,7 +82,7 @@
       if (!toggleButton) return;
 
       function currentTheme() {
-        return root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
       }
 
       function applyTheme(theme) {
