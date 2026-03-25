@@ -30,6 +30,7 @@ Each file in articles/src/ must contain:
        <!-- /body -->
 
        <!-- sources -->
+       <div id="sources"></div>
        <li>Source one.</li>
        <li>Source two.</li>
        <!-- /sources -->
@@ -75,6 +76,36 @@ def wrap_sources(sources: str) -> str:
     return "\n".join(result)
 
 
+def format_images(body: str) -> str:
+    """Normalize <img> tags with shared class and performance/accessibility attrs."""
+    def _repl(match: re.Match) -> str:
+        attrs = match.group(1)
+
+        class_match = re.search(r'\bclass\s*=\s*(["\'])(.*?)\1', attrs, re.IGNORECASE | re.DOTALL)
+        if class_match:
+            classes = class_match.group(2).split()
+            if "article-image" not in classes:
+                classes.append("article-image")
+            attrs = (
+                attrs[:class_match.start()]
+                + f'class="{' '.join(classes)}"'
+                + attrs[class_match.end():]
+            )
+        else:
+            attrs += ' class="article-image"'
+
+        if not re.search(r'\bloading\s*=', attrs, re.IGNORECASE):
+            attrs += ' loading="lazy"'
+        if not re.search(r'\bdecoding\s*=', attrs, re.IGNORECASE):
+            attrs += ' decoding="async"'
+        if not re.search(r'\balt\s*=', attrs, re.IGNORECASE):
+            attrs += ' alt=""'
+
+        return f"<img{attrs}>"
+
+    return re.sub(r"<img\b([^>]*)>", _repl, body, flags=re.IGNORECASE)
+
+
 def parse(path: Path) -> dict:
     text = path.read_text(encoding="utf-8")
 
@@ -100,9 +131,10 @@ def parse(path: Path) -> dict:
         "category":  meta.get("category",  ""),
         "author":    meta.get("author",    ""),
         "date":      meta.get("date",      ""),
-        "body":      wrap_paragraphs(section("body")),
+        "body":      wrap_paragraphs(format_images(section("body"))),
         "sources_section": (
             '<section class="article-sources">\n'
+            '      <div id="sources"></div>'
             '      <h3 class="article-sources__title">Sources</h3>\n'
             '      <ol>\n        ' + wrap_sources(section("sources")) + '\n      </ol>\n    </section>'
             if section("sources").strip() else ""
