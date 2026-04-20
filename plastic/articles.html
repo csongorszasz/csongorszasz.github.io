@@ -20,7 +20,13 @@
 
   <nav class="navbar">
     <div class="container navbar__inner">
-      <a href="index.html" class="navbar__logo">EITPN</a>
+      <div class="navbar__group">
+        <a href="index.html" class="navbar__logo">EITPN</a>
+        <div class="navbar__links" aria-label="Primary">
+          <a href="index.html" class="navbar__link">About</a>
+          <a href="articles.html" class="navbar__link navbar__link--active" aria-current="page">Articles</a>
+        </div>
+      </div>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode" title="Toggle theme">
         <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
         <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
@@ -30,7 +36,7 @@
 
   <main class="container">
     <header class="page-header">
-      <h1 class="page-title">Blog</h1>
+      <h1 class="page-title">Articles</h1>
     </header>
 
     <!-- category-groups -->
