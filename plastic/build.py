@@ -9,7 +9,7 @@ Usage:
 Reads:   articles/_template.html       (the shared skeleton)
 Reads:   articles/src/*.html           (minimal content files)
 Writes:  articles/<same-filename>.html (final article pages)
-Writes:  index.html                    (category-grouped article cards)
+Writes:  articles.html                 (category-grouped article cards)
 
 Content file format
 -------------------
@@ -49,7 +49,7 @@ from pathlib import Path
 TEMPLATE_PATH      = Path("articles/_template.html")
 SRC_DIR            = Path("articles/src")
 OUT_DIR            = Path("articles")
-INDEX_PATH         = Path("index.html")
+INDEX_PATH         = Path("articles.html")
 
 
 def wrap_paragraphs(body: str) -> str:
@@ -173,7 +173,7 @@ def make_excerpt(body: str, max_chars: int = 220) -> str:
 
 
 def build_index_cards():
-    """Regenerate grouped article cards inside index.html from all source files."""
+    """Regenerate grouped article cards inside articles.html from all source files."""
     page_text = INDEX_PATH.read_text(encoding="utf-8")
 
     def parse_date(d: str) -> datetime:

@@ -709,3 +709,21 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-muted);
   line-height: 1.6;
 }
+
+/* 14. Site Copyright Bar
+   ============================================================ */
+.site-copyright-bar {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border);
+  padding: 0.85rem 1.25rem;
+  text-align: center;
+  background-color: color-mix(in oklab, var(--bg) 95%, var(--text) 5%);
+}
+
+.site-copyright-bar__text {
+  font-family: var(--font-ui);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}

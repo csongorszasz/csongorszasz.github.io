@@ -102,6 +102,10 @@
 
   </div>
 
+  <footer class="site-copyright-bar" role="contentinfo">
+    <p class="site-copyright-bar__text">&copy; <span class="site-copyright-year">2026</span> EiT Plastic News - The Fantastic 4.</p>
+  </footer>
+
   <script>
     (function () {
       var root = document.documentElement;
@@ -120,6 +124,12 @@
       }
 
       applyTheme(currentTheme());
+
+      var copyrightYearNodes = document.querySelectorAll('.site-copyright-year');
+      var currentYear = new Date().getFullYear();
+      copyrightYearNodes.forEach(function (node) {
+        node.textContent = String(currentYear);
+      });
 
       toggleButton.addEventListener('click', function () {
         applyTheme(currentTheme() === 'light' ? 'dark' : 'light');
