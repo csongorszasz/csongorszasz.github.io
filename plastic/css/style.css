@@ -338,6 +338,14 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.9;
 }
 
+.about-landing__why {
+  margin-top: 2.2rem;
+  font-family: var(--font-headline);
+  font-size: clamp(1.25rem, 3.4vw, 1.9rem);
+  font-weight: 700;
+  color: var(--accent);
+}
+
 .about-landing__start {
   margin-top: 3.4rem;
   display: flex;
