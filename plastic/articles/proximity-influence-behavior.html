@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How proximity influences behaviour change — EITPN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&family=Merriweather+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    (function () {
+      var savedTheme = localStorage.getItem('theme');
+      var theme = savedTheme === 'dark' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <div class="navbar__group">
+        <div class="navbar__links" aria-label="Primary">
+          <a href="../index.html" class="navbar__link">About</a>
+          <a href="../articles.html" class="navbar__link">Articles</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode" title="Toggle theme">
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="article-wrapper">
+
+    <header class="article-header">
+      <p class="article-category">Policy & Behavior</p>
+      <h1 class="article-headline">How proximity influences behaviour change</h1>
+      <p class="article-byline">By <strong>Tómas Ingi Jóhannsson</strong> &mdash; April 20, 2026</p>
+    </header>
+
+    <article class="article-content">
+      <h2>Making plastic pollution feel local drives more behaviour change</h2>
+
+<p>A consistent pattern across the literature is that people react more strongly the closer they feel to the problem. The proximity review shows that in roughly two thirds of studies, people who feel closer to a risk also perceive it as more serious and are more willing to act upon it (Balžekienė et al, 2025). This is not only about physical distance, but the review makes a point out of it that subjective proximity (whether you feel the issue touches your own life) can be just as important as physical proximity (actually living near the hazard).</p>
+
+<p>This brings light to why plastic pollution often fails to trigger meaningful behaviour changes within people. The global perceptions review points out that peoples wide awareness of plastic pollution, but the problem is usually framed as something happening very far away. Mostly to oceans and wildlife in distant parts of the world (Henderson, 2023). When the problem phrased like such a distant hazard and problem it tends to make people care in principle but not feel much personal urgency.</p>
+
+<p>Once plastics are framed as a human health issue, as a problem with subjective proximity, the dynamics change. The human health study shows that when people learn how microplastics can enter their food, water and eventually their bodies, their perceived risk increases and with that does their willingness to reduce plastic use (Francke et al., 2025). This is ties to the mechanism described in the proximity review that when the “object at risk” becomes you rather than the environment in general then psychological distance collapses and behaviour becomes more responsive to the fact.</p>
+
+<p>Another point that fits across the sources is that health risks tend to be treated as more credible and harder to ignore. Environmental harm can feel abstract and/or slow moving, but anything that might affect your body feels immediate. That shift, from a distant environmental threat to a personal health concern, is what seems to push people from passive awareness to actual behaviour change.</p>
+    </article>
+
+    <section class="article-sources">
+      <div id="sources"></div>      <h3 class="article-sources__title">Sources</h3>
+      <ol>
+        <li>Balžekienė, A., Echavarren, J. M., & Telešienė, A. (2025). The effect of proximity on risk perception: A systematic literature review. Current Sociology.</li>
+<li>Francke, A., et al. (2025). Plastics and Human Health: How Perception of Human Health Risks Can Reduce Plastics Consumption? In Plastics and Society (Springer).</li>
+<li>Henderson, L. (2023). Global perceptions of plastic pollution: The contours and limits of debate. Cambridge Prisms: Plastics.</li>
+      </ol>
+    </section>
+
+    <footer class="article-copyright">
+      
+    </footer>
+
+  </div>
+
+  <footer class="site-copyright-bar" role="contentinfo">
+    <p class="site-copyright-bar__text">&copy; <span class="site-copyright-year">2026</span> EiT Plastic News - The Fantastic 4.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var toggleButton = document.getElementById('themeToggle');
+
+      if (!toggleButton) return;
+
+      function currentTheme() {
+        return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        toggleButton.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      }
+
+      applyTheme(currentTheme());
+
+      var copyrightYearNodes = document.querySelectorAll('.site-copyright-year');
+      var currentYear = new Date().getFullYear();
+      copyrightYearNodes.forEach(function (node) {
+        node.textContent = String(currentYear);
+      });
+
+      toggleButton.addEventListener('click', function () {
+        applyTheme(currentTheme() === 'light' ? 'dark' : 'light');
+      });
+    })();
+  </script>
+
+</body>
+</html>
