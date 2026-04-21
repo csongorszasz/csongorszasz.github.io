@@ -35,10 +35,6 @@ Each file in articles/src/ must contain:
        <li>Source one.</li>
        <li>Source two.</li>
        <!-- /sources -->
-
-       <!-- copyright -->
-       &copy; 2026 EIT &mdash; All rights reserved.
-       <!-- /copyright -->
 """
 
 import re
