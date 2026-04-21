@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EIT — Survey results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Merriweather:ital,wght@0,300;0,400;1,300;1,400&family=Merriweather+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    (function () {
+      var savedTheme = localStorage.getItem('theme');
+      var theme = savedTheme === 'dark' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container navbar__inner">
+      <div class="navbar__group">
+        <div class="navbar__links" aria-label="Primary">
+          <a href="index.html" class="navbar__link">About</a>
+          <a href="articles.html" class="navbar__link">Articles</a>
+          <a href="survey-results.html" class="navbar__link navbar__link--active" aria-current="page">Survey results</a>
+        </div>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle light and dark mode" title="Toggle theme">
+        <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+        <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="article-wrapper">
+    <header class="article-header">
+      <p class="article-category">Survey</p>
+      <h1 class="article-headline">Survey results</h1>
+      <p class="article-byline">Insights from public responses on recycling, microplastics, and behavior change.</p>
+    </header>
+
+    <article class="article-content">
+      <h2>Motivation for a survey</h2>
+      <p>To understand the general public better, in our attempt to educate the public, we created a survey with questions touching on areas such as recycling, microplastics and human health, and willingness of change when being better informed.</p>
+
+      <h2>Results</h2>
+      <p>94 participants answered questions such as “do you recycle?”, “Do you believe recycling effectively reduces environmental impact?”, “How harmful do you believe microplastics are to human health?” and “Would learning more about the impacts of plastic pollution on human health and the environment make you more likely to reduce your plastic use?”</p>
+      <ol>
+        <li>Do you recycle? &rarr; 11 (4 being unsure) answered no &rarr; 11.6% no.</li>
+        <li>Do you believe recycling effectively reduces environmental impact? &rarr; 7 disagree + 12 neutral = 19 no or not sure &rarr; 20%.</li>
+        <li>How harmful do you believe microplastics are to human health? &rarr; 2 out of 95 believe microplastic is <em>not harmful at all</em> &rarr; 2.1%.</li>
+        <li>Would learning more about the impacts of plastic pollution on human health and the environment make you more likely to reduce your plastic use? &rarr; 22 answered unsure or not likely &rarr; (95-22)/95 = 76.8% of participants are likely to reduce their plastic usage if presented with the right information and educated.</li>
+      </ol>
+
+      <p>Though this can be viewed as promising results, we still see potential to work with. While 20% of participants are unsure or do not think recycling is effective, 11.6% do not recycle, 2% think microplastic is <em>not harmful at all</em>, and 76.8% say they are likely to reduce their plastic usage when better informed.</p>
+
+      <h2>Reflection</h2>
+      <p>Across all age groups, the prevalent idea is that people believe microplastics are harmful, with answers mostly ranging from moderately to extremely harmful. Furthermore, when asked about the commonality of microplastics in everyday life, most respondents answered either “Very common” or “Extremely common”. This gives us the consensus that awareness is not what is lacking.</p>
+
+      <p>Even though most respondents are quite aware of the problem’s scope and effect, a considerable portion of participants answered that they are unsure if learning more would make them reduce their plastic use, and some don’t recycle consistently.</p>
+
+      <p>Our organization exists to help with this disconnect. Make issues more personal and less abstract. Shift “harmful and common” into “this affects your body, food and home in this and that way”. Provide simple and actionable steps that feel manageable.</p>
+    </article>
+  </main>
+
+  <footer class="site-copyright-bar" role="contentinfo">
+    <p class="site-copyright-bar__text">&copy; <span class="site-copyright-year">2026</span> EiT Plastic News - The Fantastic 4.</p>
+  </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var toggleButton = document.getElementById('themeToggle');
+
+      if (!toggleButton) return;
+
+      function currentTheme() {
+        return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      }
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        toggleButton.setAttribute('aria-label', theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+      }
+
+      applyTheme(currentTheme());
+
+      var copyrightYearNodes = document.querySelectorAll('.site-copyright-year');
+      var currentYear = new Date().getFullYear();
+      copyrightYearNodes.forEach(function (node) {
+        node.textContent = String(currentYear);
+      });
+
+      toggleButton.addEventListener('click', function () {
+        applyTheme(currentTheme() === 'light' ? 'dark' : 'light');
+      });
+    })();
+  </script>
+
+</body>
+</html>
